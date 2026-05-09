@@ -1,0 +1,88 @@
+Windows Registry Editor Version 5.00
+
+;NqHai
+;facebook.com/nqhaivn
+
+[HKEY_CLASSES_ROOT\*\shell\81CheckSum]
+"SubCommands"=""
+"Icon"="%SystemRoot%\\system32\\shell32.dll,-16802"
+"MUIVerb"="Check MD5/SHA"
+
+[HKEY_CLASSES_ROOT\*\shell\81CheckSum\shell]
+
+[HKEY_CLASSES_ROOT\*\shell\81CheckSum\shell\1CheckMD5]
+"MUIVerb"="---MD5---"
+
+[HKEY_CLASSES_ROOT\*\shell\81CheckSum\shell\1CheckMD5\command]
+@="cmd /k @echo.&certutil -hashfile \"%1\" MD5| find /i /v "certutil"&@echo."
+
+
+[HKEY_CLASSES_ROOT\*\shell\81CheckSum\shell\2CheckSHA1]
+"MUIVerb"="---SHA1---"
+
+[HKEY_CLASSES_ROOT\*\shell\81CheckSum\shell\2CheckSHA1\command]
+@="cmd /k @echo.&certutil -hashfile \"%1\" SHA1| find /i /v "certutil"&@echo."
+
+
+[HKEY_CLASSES_ROOT\*\shell\81CheckSum\shell\3CheckSHA256]
+"MUIVerb"="---SHA256---"
+
+[HKEY_CLASSES_ROOT\*\shell\81CheckSum\shell\3CheckSHA256\command]
+@="cmd /k @echo.&certutil -hashfile \"%1\" SHA256| find /i /v "certutil"&@echo."
+
+
+[HKEY_CLASSES_ROOT\*\shell\81CheckSum\shell\4CheckSHA384]
+"MUIVerb"="---SHA384---"
+
+[HKEY_CLASSES_ROOT\*\shell\81CheckSum\shell\4CheckSHA384\command]
+@="cmd /k @echo.&certutil -hashfile \"%1\" SHA384| find /i /v "certutil"&@echo."
+
+
+[HKEY_CLASSES_ROOT\*\shell\81CheckSum\shell\5CheckSHA512]
+"MUIVerb"="---SHA512---"
+
+[HKEY_CLASSES_ROOT\*\shell\81CheckSum\shell\5CheckSHA512\command]
+@="cmd /k @echo.&certutil -hashfile \"%1\" SHA512| find /i /v "certutil"&@echo."
+
+
+[HKEY_CLASSES_ROOT\Directory\shell\21CheckSum]
+"SubCommands"=""
+"Icon"="%SystemRoot%\\system32\\shell32.dll,-16802"
+"MUIVerb"="Checksum All Files"
+
+[HKEY_CLASSES_ROOT\Directory\shell\21CheckSum\shell]
+
+
+[HKEY_CLASSES_ROOT\Directory\shell\21CheckSum\shell\1CheckMD5]
+"MUIVerb"="---MD5---"
+
+[HKEY_CLASSES_ROOT\Directory\shell\21CheckSum\shell\1CheckMD5\command]
+@="cmd /k @echo.&for /R \"%1\" %f in (*.*) do @certutil -hashfile "%f" MD5 | find /i /v "certutil"&@echo."
+
+
+[HKEY_CLASSES_ROOT\Directory\shell\21CheckSum\shell\2CheckSHA1]
+"MUIVerb"="---SHA1---"
+
+[HKEY_CLASSES_ROOT\Directory\shell\21CheckSum\shell\2CheckSHA1\command]
+@="cmd /k @echo.&for /R \"%1\" %f in (*.*) do @certutil -hashfile "%f" MD5 | find /i /v "certutil"&@echo."
+
+
+[HKEY_CLASSES_ROOT\Directory\shell\21CheckSum\shell\3CheckSHA256]
+"MUIVerb"="---SHA256---"
+
+[HKEY_CLASSES_ROOT\Directory\shell\21CheckSum\shell\3CheckSHA256\command]
+@="cmd /k @echo.&for /R \"%1\" %f in (*.*) do @certutil -hashfile "%f" MD5 | find /i /v "certutil"&@echo."
+
+
+[HKEY_CLASSES_ROOT\Directory\shell\21CheckSum\shell\4CheckSHA384]
+"MUIVerb"="---SHA384---"
+
+[HKEY_CLASSES_ROOT\Directory\shell\21CheckSum\shell\4CheckSHA384\command]
+@="cmd /k @echo.&for /R \"%1\" %f in (*.*) do @certutil -hashfile "%f" MD5 | find /i /v "certutil"&@echo."
+
+
+[HKEY_CLASSES_ROOT\Directory\shell\21CheckSum\shell\5CheckSHA512]
+"MUIVerb"="---SHA512---"
+
+[HKEY_CLASSES_ROOT\Directory\shell\21CheckSum\5CheckSHA512\command]
+@="cmd /k @echo.&for /R \"%1\" %f in (*.*) do @certutil -hashfile "%f" MD5 | find /i /v "certutil"&@echo."
