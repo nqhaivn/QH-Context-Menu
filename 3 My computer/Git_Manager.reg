@@ -1,0 +1,46 @@
+Windows Registry Editor Version 5.00
+
+; nqhai86@gmail.com
+; facebook.com/nqhaivn
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ZGitManager]
+"MUIVerb"="Git Manager"
+"Icon"="shell32.dll,-167"
+"SubCommands"=""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ZGitManager\shell]
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ZGitManager\shell\01_GitClone]
+"MUIVerb"="Git Clone"
+"Icon"="shell32.dll,-16804"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ZGitManager\shell\01_GitClone\command]
+@="powershell.exe -NoExit -Command \"Set-Location -LiteralPath '%V'; $gitUser = git config --global user.name; $repo = Read-Host 'Enter your repo'; git clone ('https://github.com/' + $gitUser + '/' + $repo)\""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ZGitManager\shell\02_Upload]
+"MUIVerb"="Upload"
+"Icon"="shell32.dll,-46"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ZGitManager\shell\02_Upload\command]
+@="powershell.exe -NoExit -Command \"Set-Location -LiteralPath '%V'; git add .; $msg = Read-Host 'Enter a description of the change'; git commit -m $msg; git push origin main\""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ZGitManager\shell\03_Sync]
+"MUIVerb"="Sync"
+"Icon"="shell32.dll,-16739"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ZGitManager\shell\03_Sync\command]
+@="powershell.exe -NoExit -Command \"Set-Location -LiteralPath '%V'; git pull origin main\""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ZGitManager\shell\04_Config]
+"MUIVerb"="Config"
+"Icon"="shell32.dll,-16826"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ZGitManager\shell\04_Config\command]
+@="powershell.exe -NoExit -Command \"$name = git config --global user.name; $email = git config --global user.email; if ($name -and $email) { Write-Host 'Current your username: ' -NoNewline; Write-Host $name -ForegroundColor Cyan; Write-Host 'Current your email:    ' -NoNewline; Write-Host $email -ForegroundColor Cyan; Write-Host ''; $confirm = Read-Host 'You want change? (Y/N)'; if ($confirm -notmatch '^[Yy]$') { exit } }; $newName = Read-Host 'Enter your username'; $newEmail = Read-Host 'Enter your email'; git config --global user.name $newName; git config --global user.email $newEmail; Write-Host 'Done!' -ForegroundColor Green\""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ZGitManager\shell\05_AccessGit]
+"MUIVerb"="Access Git"
+"Icon"="shell32.dll,-16805"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ZGitManager\shell\05_AccessGit\command]
+@="cmd.exe /c start https://github.com"
